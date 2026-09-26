@@ -1,4 +1,4 @@
-# Enemy AI Dungeon — Tugas Game Development (Chapter 1)
+# Enemy AI Dungeon — Tugas Game Development
 
 **Studi Kasus:**
 Player bergerak di dalam sebuah dungeon. Enemy harus:
@@ -9,9 +9,9 @@ Player bergerak di dalam sebuah dungeon. Enemy harus:
 
 ---
 
-## 1. Identifikasi Algoritma yang Digunakan
+# 1. Identifikasi Algoritma yang Digunakan
 
-Studi kasus ini sebenarnya adalah **gabungan 3 algoritma** yang berjalan berurutan setiap frame (sesuai konsep *Game Loop* pada slide Chapter 1):
+Studi kasus ini sebenarnya adalah **gabungan 3 algoritma** yang berjalan berurutan setiap frame:
 
 | Tahap | Algoritma | Alasan Pemilihan |
 |---|---|---|
@@ -25,7 +25,7 @@ Algoritma ini bersifat **deterministik** (bukan random) — untuk input posisi p
 
 ---
 
-## 2. Flowchart Algoritma
+# 2. Flowchart Algoritma
 
 Diagram alur lengkap tersedia di [`docs/flowchart.md`](docs/flowchart.md) (format Mermaid, otomatis ter-render di GitHub).
 
@@ -75,9 +75,9 @@ END frame -> ulangi di frame berikutnya
 
 ---
 
-## 3. Code Snippet
+# 3. Code Snippet
 
-Bahasa: **C# (Unity Engine)** — karena paling umum dipakai untuk game 2D/3D dungeon crawler dan sesuai konteks mata kuliah Game Development.
+Bahasa: **C# (Unity Engine)** — karena paling umum dipakai untuk game 2D/3D dungeon crawler.
 
 File lengkap: [`Scripts/EnemyAI.cs`](Scripts/EnemyAI.cs)
 
@@ -88,7 +88,7 @@ Kode mencakup:
 
 ---
 
-## Struktur Repository
+# Struktur Repository
 
 ```
 enemy-ai-dungeon/
@@ -98,7 +98,3 @@ enemy-ai-dungeon/
 └── Scripts/
     └── EnemyAI.cs             <- code snippet C# (Unity)
 ```
-
-## Referensi
-- Ian Millington — *AI for Games*, 3rd Edition (A* Pathfinding, Steering Behaviour)
-- Materi Kuliah: Chapter 1 — Introduction to Game Algorithms
