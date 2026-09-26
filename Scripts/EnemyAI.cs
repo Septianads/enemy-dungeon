@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-
-/// <summary>
-/// Enemy AI untuk dungeon:
-/// 1. Deteksi player (Range/Distance Detection)
-/// 2. Cek jangkauan (detection radius & attack range)
-/// 3. Cari jalur menuju player (A* Pathfinding pada grid)
-/// 4. Bergerak menuju player mengikuti jalur (Seek Movement)
-/// </summary>
+// <summary>
+// Enemy AI untuk dungeon:
+// 1. Deteksi player (Range/Distance Detection)
+// 2. Cek jangkauan (detection radius & attack range)
+// 3. Cari jalur menuju player (A* Pathfinding pada grid)
+// 4. Bergerak menuju player mengikuti jalur (Seek Movement)
+// </summary>
 public class EnemyAI : MonoBehaviour
 {
     [Header("References")]
@@ -68,9 +67,7 @@ public class EnemyAI : MonoBehaviour
         Debug.Log($"{name} menyerang player!");
     }
 
-    // ======================================================
     // A* PATHFINDING
-    // ======================================================
     List<Node> FindPathAStar(Node start, Node goal)
     {
         var openSet = new List<Node> { start };
@@ -143,9 +140,7 @@ public class EnemyAI : MonoBehaviour
         return path;
     }
 
-    // ======================================================
     // MOVEMENT (Seek sepanjang waypoint hasil A*)
-    // ======================================================
     void MoveAlongPath()
     {
         if (currentPath.Count == 0 || pathIndex >= currentPath.Count) return;
@@ -170,17 +165,17 @@ public class EnemyAI : MonoBehaviour
     }
 }
 
-/// <summary>Representasi satu sel/node grid dungeon.</summary>
+// <summary>Representasi satu sel/node grid dungeon.</summary>
 public class Node
 {
     public Vector2Int gridPosition;
     public bool isWalkable;
 }
 
-/// <summary>
-/// Contoh sederhana kelas grid dungeon.
-/// Implementasi nyata bisa memakai Tilemap Unity untuk membangun grid ini.
-/// </summary>
+// <summary>
+// Contoh sederhana kelas grid dungeon.
+// Implementasi nyata bisa memakai Tilemap Unity untuk membangun grid ini.
+// </summary>
 public class DungeonGrid : MonoBehaviour
 {
     public float cellSize = 1f;
