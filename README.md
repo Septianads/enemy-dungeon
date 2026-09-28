@@ -1,4 +1,4 @@
-# Enemy AI Dungeon — Tugas Game Development
+# Enemy Dungeon — Tugas Game Development
 
 **Studi Kasus:**
 Player bergerak di dalam sebuah dungeon. Enemy harus:
@@ -15,19 +15,19 @@ Studi kasus ini sebenarnya adalah **gabungan 3 algoritma** yang berjalan berurut
 
 | Tahap | Algoritma | Alasan Pemilihan |
 |---|---|---|
-| **1. Deteksi Player** | **Range/Distance Detection** (menghitung jarak Euclidean antara enemy & player, dibandingkan dengan `detectionRadius`) | Cara paling sederhana & murah secara komputasi (O(1) per enemy) untuk mengetahui apakah player "terlihat" oleh enemy. Sesuai materi *Time Complexity* di slide 15 — kita ingin operasi per-frame tetap ringan. |
-| **2. Pencarian Jalur (Pathfinding)** | **A\* (A-Star) Search Algorithm** pada grid dungeon | Dungeon biasanya direpresentasikan sebagai grid/graph dengan tembok (obstacle). A* adalah algoritma pathfinding paling umum di industri game karena menggabungkan *Dijkstra* (cost dari start) dan *Greedy Best-First Search* (heuristic ke goal), sehingga jalur yang ditemukan **optimal** dan **efisien**, sesuai topik *Graph Algorithm* & *Pathfinding I/II* pada silabus mata kuliah ini. |
-| **3. Pergerakan (Movement)** | **Seek / Steering Behaviour** (bagian dari Movement Algorithm — mengarahkan enemy ke *waypoint* berikutnya pada path hasil A*) | Setelah path ditemukan (berupa list of nodes/waypoints), enemy tidak langsung "teleport" ke player, melainkan bergerak halus node demi node menggunakan vektor arah (`direction = target - position`) dikali `speed`. Ini adalah bentuk dasar *Steering Behaviour* yang dibahas di topik *Movement Algorithm*. |
+| **1. Deteksi Player** | **Range/Distance Detection** (menghitung jarak Euclidean antara enemy & player, dibandingkan dengan `detectionRadius`) | Cara paling sederhana & murah secara komputasi (O(1) per enemy) untuk mengetahui apakah player "terlihat" oleh enemy. |
+| **2. Pencarian Jalur (Pathfinding)** | **A\* (A-Star) Search Algorithm** pada grid dungeon | Dungeon biasanya direpresentasikan sebagai grid/graph dengan tembok (obstacle). A* adalah algoritma pathfinding paling umum di industri game karena menggabungkan *Dijkstra* (cost dari start) dan *Greedy Best-First Search* (heuristic ke goal), sehingga jalur yang ditemukan **optimal** dan **efisien**. |
+| **3. Pergerakan (Movement)** | **Seek / Steering Behaviour** (bagian dari Movement Algorithm — mengarahkan enemy ke *waypoint* berikutnya pada path hasil A*) | Setelah path ditemukan (berupa list of nodes/waypoints), enemy tidak langsung "teleport" ke player, melainkan bergerak halus node demi node menggunakan vektor arah (`direction = target - position`) dikali `speed`. |
 
 **Kesimpulan singkat:** Enemy menggunakan pola **Detect → Range Check → A\* Pathfinding → Seek Movement**, dieksekusi berulang setiap frame di dalam *game loop*.
 
-Algoritma ini bersifat **deterministik** (bukan random) — untuk input posisi player & enemy yang sama, hasil path dan pergerakannya akan selalu sama (lihat slide 17–18 tentang *Deterministic Algorithm*).
+Algoritma ini bersifat **deterministik** (bukan random) — untuk input posisi player & enemy yang sama, hasil path dan pergerakannya akan selalu sama.
 
 ---
 
 # 2. Flowchart Algoritma
 
-Diagram alur lengkap tersedia di [`docs/flowchart.md`](docs/flowchart.md) (format Mermaid, otomatis ter-render di GitHub).
+Diagram alur lengkap tersedia di [`docs/flowchart.md`](docs/flowchart.md).
 
 Ringkasan alurnya:
 
@@ -77,7 +77,7 @@ END frame -> ulangi di frame berikutnya
 
 # 3. Code Snippet
 
-Bahasa: **C# (Unity Engine)** — karena paling umum dipakai untuk game 2D/3D dungeon crawler.
+Bahasa: **C#** — karena paling umum dipakai untuk game 2D/3D dungeon crawler.
 
 File lengkap: [`Scripts/EnemyAI.cs`](Scripts/EnemyAI.cs)
 
@@ -92,9 +92,9 @@ Kode mencakup:
 
 ```
 enemy-ai-dungeon/
-├── README.md                <- penjelasan & jawaban tugas (file ini)
+├── README.md                <- penjelasan & jawaban tugas 
 ├── docs/
-│   └── flowchart.md          <- flowchart (Mermaid)
+│   └── flowchart.md          <- flowchart 
 └── Scripts/
-    └── EnemyAI.cs             <- code snippet C# (Unity)
+    └── EnemyAI.cs             <- code snippet C# 
 ```
